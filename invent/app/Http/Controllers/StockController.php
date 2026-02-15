@@ -23,7 +23,9 @@ class StockController extends Controller
         ]);
 
         return DB::transaction(function () use($request){
-            $product = Product::findOrFail($request->product_id);
+
+            // The lockForUpdate works like it locks the row at which updating, so 1+ devices if req simultaneously they dont update the same row simultaneously it locks the row of table untill it is completed
+            $product = Product::where('id', $request->product_id)->lockForUpdate()->firstOrFail();
             $req_type = $request->type;
 
             // The stock should not be going to -ve
