@@ -16,8 +16,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/stock/move', [StockController::class, 'move']);
 });
 
-
-
 // Route::middleware('auth:sanctum')->post('/stock/move', [StockController::class, 'move']);
 Route::post('/login',[AuthController::class,'login']);
 
