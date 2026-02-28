@@ -17,9 +17,9 @@ class StockController extends Controller
     //
     public function move(Request $request){
         $request->validate([
-            'product_id' => 'required | exists:products,id',
-            'type' => 'required | in:in,out',
-            'quantity' => 'required | integer | min:1',
+            'product_id' => 'required|exists:products,id',
+            'type' => 'required|in:in,out',
+            'quantity' => 'required|integer|min:1',
         ]);
 
         return DB::transaction(function () use($request){
