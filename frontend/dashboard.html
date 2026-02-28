@@ -1,38 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Invent - Dashboard</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invent — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100">
+<body class="dashboard-page">
 
-<div class="flex">
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">▣</div>
+      <span class="brand-name">INVENT</span>
+    </div>
 
-<!-- Sidebar -->
-<div class="w-60 bg-gray-900 text-white min-h-screen p-5">
-<h2 class="text-xl font-bold mb-6">Invent</h2>
-<button onclick="loadProducts()" class="block mb-3 hover:text-blue-400">
-Products
-</button>
-<button onclick="loadMovements()" class="block hover:text-blue-400">
-Stock Movements
-</button>
-<button onclick="logout()" class="mt-6 text-red-400">
-Logout
-</button>
-</div>
+    <nav class="sidebar-nav">
+      <button id="nav-dashboard" class="nav-btn active" onclick="loadDashboard()">
+        <span class="nav-icon">◈</span> Overview
+      </button>
+      <button id="nav-products" class="nav-btn" onclick="loadProducts()">
+        <span class="nav-icon">⬡</span> Products
+      </button>
+      <button id="nav-categories" class="nav-btn" onclick="loadCategories()">
+        <span class="nav-icon">⊞</span> Categories
+      </button>
+      <button id="nav-movements" class="nav-btn" onclick="loadMovements()">
+        <span class="nav-icon">⇅</span> Movements
+      </button>
+    </nav>
 
-<!-- Main Content -->
-<div class="flex-1 p-8">
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar">A</div>
+        <div class="user-details">
+          <div class="user-name">Admin</div>
+          <div class="user-role">Warehouse Manager</div>
+        </div>
+      </div>
+      <button onclick="logout()" class="logout-btn">↩ Logout</button>
+    </div>
+  </div>
 
-<h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+  <main class="main-content">
+    <div id="content">
+      <div class="loading">Loading...</div>
+    </div>
+  </main>
 
-<div id="content"></div>
+  <div id="toast" class="toast"></div>
 
-</div>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
+  <script>loadDashboard();</script>
 </body>
 </html>

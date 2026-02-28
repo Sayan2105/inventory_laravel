@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Invent - Login</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invent — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<body class="login-page">
 
-<div class="bg-white p-8 rounded-xl shadow w-96">
-<h2 class="text-2xl font-bold mb-6 text-center">Inventory Login</h2>
+  <div class="login-bg">
+    <div class="grid-lines"></div>
+  </div>
 
-<input id="email" placeholder="Email"
-class="border p-2 w-full mb-3 rounded">
+  <div class="login-container">
 
-<input id="password" type="password"
-placeholder="Password"
-class="border p-2 w-full mb-4 rounded">
+    <div class="login-brand">
+      <div class="brand-mark">▣</div>
+      <span class="brand-name">INVENT</span>
+    </div>
 
-<button type="button"
-onclick="login()"
-class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
-Login
-</button>
+    <div class="login-card">
+      <h1 class="login-title">Warehouse<br>Control</h1>
+      <p class="login-sub">Sign in to manage your inventory</p>
 
-<p id="msg" class="mt-4 text-center text-sm text-red-500"></p>
-</div>
+      <div class="form-group">
+        <label class="label">Email</label>
+        <input id="email" type="email" placeholder="admin@warehouse.com" class="input" onkeydown="if(event.key==='Enter') login()">
+      </div>
 
-<script src="app.js"></script>
+      <div class="form-group">
+        <label class="label">Password</label>
+        <input id="password" type="password" placeholder="••••••••" class="input" onkeydown="if(event.key==='Enter') login()">
+      </div>
+
+      <button id="loginBtn" onclick="login()" class="btn btn-primary btn-full">
+        Login
+      </button>
+
+      <p id="msg" class="login-error"></p>
+    </div>
+
+    <p class="login-footer">Invent Warehouse Management System</p>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
 </body>
 </html>
